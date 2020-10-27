@@ -1,0 +1,287 @@
+"OBJECTID","ID_0","ISO","NAME_0","ID_1","NAME_1","ID_2","NAME_2","TYPE_2","ENGTYPE_2","NL_NAME_2","VARNAME_2"
+1,222,"SWE","Sweden",1,"Östergötland",1,"Ödeshög","Kommuner","Municipality",NA,NA
+2,222,"SWE","Sweden",1,"Östergötland",2,"Åtvidaberg","Kommuner","Municipality",NA,NA
+3,222,"SWE","Sweden",1,"Östergötland",3,"Boxholm","Kommuner","Municipality",NA,NA
+4,222,"SWE","Sweden",1,"Östergötland",4,"Finspång","Kommuner","Municipality",NA,NA
+5,222,"SWE","Sweden",1,"Östergötland",5,"Kinda","Kommuner","Municipality",NA,NA
+6,222,"SWE","Sweden",1,"Östergötland",6,"Linköping","Kommuner","Municipality",NA,NA
+7,222,"SWE","Sweden",1,"Östergötland",7,"Mjölby","Kommuner","Municipality",NA,NA
+8,222,"SWE","Sweden",1,"Östergötland",8,"Motala","Kommuner","Municipality",NA,NA
+9,222,"SWE","Sweden",1,"Östergötland",9,"Norrköping","Kommuner","Municipality",NA,NA
+10,222,"SWE","Sweden",1,"Östergötland",10,"Söderköping","Kommuner","Municipality",NA,NA
+11,222,"SWE","Sweden",1,"Östergötland",11,"Vadstena","Kommuner","Municipality",NA,NA
+12,222,"SWE","Sweden",1,"Östergötland",12,"Valdemarsvik","Kommuner","Municipality",NA,NA
+13,222,"SWE","Sweden",1,"Östergötland",13,"Ydre","Kommuner","Municipality",NA,NA
+14,222,"SWE","Sweden",2,"Blekinge",14,"Karlshamn","Kommuner","Municipality",NA,NA
+15,222,"SWE","Sweden",2,"Blekinge",15,"Karlskrona","Kommuner","Municipality",NA,NA
+16,222,"SWE","Sweden",2,"Blekinge",16,"Olofström","Kommuner","Municipality",NA,NA
+17,222,"SWE","Sweden",2,"Blekinge",17,"Ronneby","Kommuner","Municipality",NA,NA
+18,222,"SWE","Sweden",2,"Blekinge",18,"Sölvesborg","Kommuner","Municipality",NA,NA
+19,222,"SWE","Sweden",3,"Dalarna",19,"Älvdalen","Kommuner","Municipality",NA,NA
+20,222,"SWE","Sweden",3,"Dalarna",20,"Avesta","Kommuner","Municipality",NA,NA
+21,222,"SWE","Sweden",3,"Dalarna",21,"Borlänge","Kommuner","Municipality",NA,NA
+22,222,"SWE","Sweden",3,"Dalarna",22,"Falun","Kommuner","Municipality",NA,NA
+23,222,"SWE","Sweden",3,"Dalarna",23,"Gagnef","Kommuner","Municipality",NA,NA
+24,222,"SWE","Sweden",3,"Dalarna",24,"Hedemora","Kommuner","Municipality",NA,NA
+25,222,"SWE","Sweden",3,"Dalarna",25,"Leksand","Kommuner","Municipality",NA,NA
+26,222,"SWE","Sweden",3,"Dalarna",26,"Ludvika","Kommuner","Municipality",NA,NA
+27,222,"SWE","Sweden",3,"Dalarna",27,"Malung","Kommuner","Municipality",NA,NA
+28,222,"SWE","Sweden",3,"Dalarna",28,"Mora","Kommuner","Municipality",NA,NA
+29,222,"SWE","Sweden",3,"Dalarna",29,"Orsa","Kommuner","Municipality",NA,NA
+30,222,"SWE","Sweden",3,"Dalarna",30,"Rättvik","Kommuner","Municipality",NA,NA
+31,222,"SWE","Sweden",3,"Dalarna",31,"Säter","Kommuner","Municipality",NA,NA
+32,222,"SWE","Sweden",3,"Dalarna",32,"Smedjebacken","Kommuner","Municipality",NA,NA
+33,222,"SWE","Sweden",3,"Dalarna",33,"Vansbro","Kommuner","Municipality",NA,NA
+34,222,"SWE","Sweden",4,"Gävleborg",34,"Bollnäs","Kommuner","Municipality",NA,NA
+35,222,"SWE","Sweden",4,"Gävleborg",35,"Gävle","Kommuner","Municipality",NA,NA
+36,222,"SWE","Sweden",4,"Gävleborg",36,"Hofors","Kommuner","Municipality",NA,NA
+37,222,"SWE","Sweden",4,"Gävleborg",37,"Hudiksvall","Kommuner","Municipality",NA,NA
+38,222,"SWE","Sweden",4,"Gävleborg",38,"Ljusdal","Kommuner","Municipality",NA,NA
+39,222,"SWE","Sweden",4,"Gävleborg",39,"Nordanstig","Kommuner","Municipality",NA,NA
+40,222,"SWE","Sweden",4,"Gävleborg",40,"Ockelbo","Kommuner","Municipality",NA,NA
+41,222,"SWE","Sweden",4,"Gävleborg",41,"Ovanåker","Kommuner","Municipality",NA,NA
+42,222,"SWE","Sweden",4,"Gävleborg",42,"Söderhamn","Kommuner","Municipality",NA,NA
+43,222,"SWE","Sweden",4,"Gävleborg",43,"Sandviken","Kommuner","Municipality",NA,NA
+44,222,"SWE","Sweden",5,"Gotland",44,"Gotland","Kommuner","Municipality",NA,NA
+45,222,"SWE","Sweden",6,"Halland",45,"Falkenberg","Kommuner","Municipality",NA,NA
+46,222,"SWE","Sweden",6,"Halland",46,"Halmstad","Kommuner","Municipality",NA,NA
+47,222,"SWE","Sweden",6,"Halland",47,"Hylte","Kommuner","Municipality",NA,NA
+48,222,"SWE","Sweden",6,"Halland",48,"Kungsbacka","Kommuner","Municipality",NA,NA
+49,222,"SWE","Sweden",6,"Halland",49,"Laholm","Kommuner","Municipality",NA,NA
+50,222,"SWE","Sweden",6,"Halland",50,"Varberg","Kommuner","Municipality",NA,NA
+51,222,"SWE","Sweden",7,"Jämtland",51,"Östersund","Kommuner","Municipality",NA,NA
+52,222,"SWE","Sweden",7,"Jämtland",52,"Åre","Kommuner","Municipality",NA,NA
+53,222,"SWE","Sweden",7,"Jämtland",53,"Berg","Kommuner","Municipality",NA,NA
+54,222,"SWE","Sweden",7,"Jämtland",54,"Bräcke","Kommuner","Municipality",NA,NA
+55,222,"SWE","Sweden",7,"Jämtland",55,"Härjedalen","Kommuner","Municipality",NA,NA
+56,222,"SWE","Sweden",7,"Jämtland",56,"Krokom","Kommuner","Municipality",NA,NA
+57,222,"SWE","Sweden",7,"Jämtland",57,"Ragunda","Kommuner","Municipality",NA,NA
+58,222,"SWE","Sweden",7,"Jämtland",58,"Strömsund","Kommuner","Municipality",NA,NA
+59,222,"SWE","Sweden",8,"Jönköping",59,"Aneby","Kommuner","Municipality",NA,NA
+60,222,"SWE","Sweden",8,"Jönköping",60,"Eksjö","Kommuner","Municipality",NA,NA
+61,222,"SWE","Sweden",8,"Jönköping",61,"Gislaved","Kommuner","Municipality",NA,NA
+62,222,"SWE","Sweden",8,"Jönköping",62,"Gnosjö","Kommuner","Municipality",NA,NA
+63,222,"SWE","Sweden",8,"Jönköping",63,"Jönköping","Kommuner","Municipality",NA,NA
+64,222,"SWE","Sweden",8,"Jönköping",64,"Nässjö","Kommuner","Municipality",NA,NA
+65,222,"SWE","Sweden",8,"Jönköping",65,"Sävsjö","Kommuner","Municipality",NA,NA
+66,222,"SWE","Sweden",8,"Jönköping",66,"Tranås","Kommuner","Municipality",NA,NA
+67,222,"SWE","Sweden",8,"Jönköping",67,"Värnamo","Kommuner","Municipality",NA,NA
+68,222,"SWE","Sweden",8,"Jönköping",68,"Vaggeryd","Kommuner","Municipality",NA,NA
+69,222,"SWE","Sweden",8,"Jönköping",69,"Vetlanda","Kommuner","Municipality",NA,NA
+70,222,"SWE","Sweden",9,"Kalmar",70,"Borgholm","Kommuner","Municipality",NA,NA
+71,222,"SWE","Sweden",9,"Kalmar",71,"Emmaboda","Kommuner","Municipality",NA,NA
+72,222,"SWE","Sweden",9,"Kalmar",72,"Högsby","Kommuner","Municipality",NA,NA
+73,222,"SWE","Sweden",9,"Kalmar",73,"Hultsfred","Kommuner","Municipality",NA,NA
+74,222,"SWE","Sweden",9,"Kalmar",74,"Kalmar","Kommuner","Municipality",NA,NA
+75,222,"SWE","Sweden",9,"Kalmar",75,"Mönsterås","Kommuner","Municipality",NA,NA
+76,222,"SWE","Sweden",9,"Kalmar",76,"Mörbylånga","Kommuner","Municipality",NA,NA
+77,222,"SWE","Sweden",9,"Kalmar",77,"Nybro","Kommuner","Municipality",NA,NA
+78,222,"SWE","Sweden",9,"Kalmar",78,"Oskarshamn","Kommuner","Municipality",NA,NA
+79,222,"SWE","Sweden",9,"Kalmar",79,"Torsås","Kommuner","Municipality",NA,NA
+80,222,"SWE","Sweden",9,"Kalmar",80,"Västervik","Kommuner","Municipality",NA,NA
+81,222,"SWE","Sweden",9,"Kalmar",81,"Vimmerby","Kommuner","Municipality",NA,NA
+82,222,"SWE","Sweden",10,"Kronoberg",82,"Älmhult","Kommuner","Municipality",NA,NA
+83,222,"SWE","Sweden",10,"Kronoberg",83,"Alvesta","Kommuner","Municipality",NA,NA
+84,222,"SWE","Sweden",10,"Kronoberg",84,"Lessebo","Kommuner","Municipality",NA,NA
+85,222,"SWE","Sweden",10,"Kronoberg",85,"Ljungby","Kommuner","Municipality",NA,NA
+86,222,"SWE","Sweden",10,"Kronoberg",86,"Markaryd","Kommuner","Municipality",NA,NA
+87,222,"SWE","Sweden",10,"Kronoberg",87,"Tingsryd","Kommuner","Municipality",NA,NA
+88,222,"SWE","Sweden",10,"Kronoberg",88,"Uppvidinge","Kommuner","Municipality",NA,NA
+89,222,"SWE","Sweden",10,"Kronoberg",89,"Växjö","Kommuner","Municipality",NA,NA
+90,222,"SWE","Sweden",11,"Norrbotten",90,"Överkalix","Kommuner","Municipality",NA,NA
+91,222,"SWE","Sweden",11,"Norrbotten",91,"Övertorneå","Kommuner","Municipality",NA,NA
+92,222,"SWE","Sweden",11,"Norrbotten",92,"Älvsbyn","Kommuner","Municipality",NA,NA
+93,222,"SWE","Sweden",11,"Norrbotten",93,"Arjeplog","Kommuner","Municipality",NA,NA
+94,222,"SWE","Sweden",11,"Norrbotten",94,"Arvidsjaur","Kommuner","Municipality",NA,NA
+95,222,"SWE","Sweden",11,"Norrbotten",95,"Boden","Kommuner","Municipality",NA,NA
+96,222,"SWE","Sweden",11,"Norrbotten",96,"Gällivare","Kommuner","Municipality",NA,NA
+97,222,"SWE","Sweden",11,"Norrbotten",97,"Haparanda","Kommuner","Municipality",NA,NA
+98,222,"SWE","Sweden",11,"Norrbotten",98,"Jokkmokk","Kommuner","Municipality",NA,NA
+99,222,"SWE","Sweden",11,"Norrbotten",99,"Kalix","Kommuner","Municipality",NA,NA
+100,222,"SWE","Sweden",11,"Norrbotten",100,"Kiruna","Kommuner","Municipality",NA,NA
+101,222,"SWE","Sweden",11,"Norrbotten",101,"Luleå","Kommuner","Municipality",NA,NA
+102,222,"SWE","Sweden",11,"Norrbotten",102,"Pajala","Kommuner","Municipality",NA,NA
+103,222,"SWE","Sweden",11,"Norrbotten",103,"Piteå","Kommuner","Municipality",NA,NA
+104,222,"SWE","Sweden",12,"Orebro",104,"Örebro","Kommuner","Municipality",NA,NA
+105,222,"SWE","Sweden",12,"Orebro",105,"Askersund","Kommuner","Municipality",NA,NA
+106,222,"SWE","Sweden",12,"Orebro",106,"Degerfors","Kommuner","Municipality",NA,NA
+107,222,"SWE","Sweden",12,"Orebro",107,"Hällefors","Kommuner","Municipality",NA,NA
+108,222,"SWE","Sweden",12,"Orebro",108,"Hallsberg","Kommuner","Municipality",NA,NA
+109,222,"SWE","Sweden",12,"Orebro",109,"Karlskoga","Kommuner","Municipality",NA,NA
+110,222,"SWE","Sweden",12,"Orebro",110,"Kumla","Kommuner","Municipality",NA,NA
+111,222,"SWE","Sweden",12,"Orebro",111,"Laxå","Kommuner","Municipality",NA,NA
+112,222,"SWE","Sweden",12,"Orebro",112,"Lindesberg","Kommuner","Municipality",NA,NA
+113,222,"SWE","Sweden",12,"Orebro",113,"Ljusnarsberg","Kommuner","Municipality",NA,NA
+114,222,"SWE","Sweden",12,"Orebro",114,"Nora","Kommuner","Municipality",NA,NA
+115,222,"SWE","Sweden",13,"Södermanland",115,"Eskilstuna","Kommuner","Municipality",NA,NA
+116,222,"SWE","Sweden",13,"Södermanland",116,"Flen","Kommuner","Municipality",NA,NA
+117,222,"SWE","Sweden",13,"Södermanland",117,"Gnesta","Kommuner","Municipality",NA,NA
+118,222,"SWE","Sweden",13,"Södermanland",118,"Katrineholm","Kommuner","Municipality",NA,NA
+119,222,"SWE","Sweden",13,"Södermanland",119,"Nyköping","Kommuner","Municipality",NA,NA
+120,222,"SWE","Sweden",13,"Södermanland",120,"Oxelösund","Kommuner","Municipality",NA,NA
+121,222,"SWE","Sweden",13,"Södermanland",121,"Strängnäs","Kommuner","Municipality",NA,NA
+122,222,"SWE","Sweden",13,"Södermanland",122,"Trosa","Kommuner","Municipality",NA,NA
+123,222,"SWE","Sweden",13,"Södermanland",123,"Vingåker","Kommuner","Municipality",NA,NA
+124,222,"SWE","Sweden",14,"Skåne",124,"Örkelljunga","Kommuner","Municipality",NA,NA
+125,222,"SWE","Sweden",14,"Skåne",125,"Östra Göinge","Kommuner","Municipality",NA,NA
+126,222,"SWE","Sweden",14,"Skåne",126,"Ängelholm","Kommuner","Municipality",NA,NA
+127,222,"SWE","Sweden",14,"Skåne",127,"Åstorp","Kommuner","Municipality",NA,NA
+128,222,"SWE","Sweden",14,"Skåne",128,"Båstad","Kommuner","Municipality",NA,NA
+129,222,"SWE","Sweden",14,"Skåne",129,"Bjuv","Kommuner","Municipality",NA,NA
+130,222,"SWE","Sweden",14,"Skåne",130,"Bromölla","Kommuner","Municipality",NA,NA
+131,222,"SWE","Sweden",14,"Skåne",131,"Burlöv","Kommuner","Municipality",NA,NA
+132,222,"SWE","Sweden",14,"Skåne",132,"Eslöv","Kommuner","Municipality",NA,NA
+133,222,"SWE","Sweden",14,"Skåne",133,"Hässleholm","Kommuner","Municipality",NA,NA
+134,222,"SWE","Sweden",14,"Skåne",134,"Höör","Kommuner","Municipality",NA,NA
+135,222,"SWE","Sweden",14,"Skåne",135,"Höganäs","Kommuner","Municipality",NA,NA
+136,222,"SWE","Sweden",14,"Skåne",136,"Hörby","Kommuner","Municipality",NA,NA
+137,222,"SWE","Sweden",14,"Skåne",137,"Helsingborg","Kommuner","Municipality",NA,NA
+138,222,"SWE","Sweden",14,"Skåne",138,"Kävlinge","Kommuner","Municipality",NA,NA
+139,222,"SWE","Sweden",14,"Skåne",139,"Klippan","Kommuner","Municipality",NA,NA
+140,222,"SWE","Sweden",14,"Skåne",140,"Kristianstad","Kommuner","Municipality",NA,NA
+141,222,"SWE","Sweden",14,"Skåne",141,"Landskrona","Kommuner","Municipality",NA,NA
+142,222,"SWE","Sweden",14,"Skåne",142,"Lomma","Kommuner","Municipality",NA,NA
+143,222,"SWE","Sweden",14,"Skåne",143,"Lund","Kommuner","Municipality",NA,NA
+144,222,"SWE","Sweden",14,"Skåne",144,"Malmö","Kommuner","Municipality",NA,NA
+145,222,"SWE","Sweden",14,"Skåne",145,"Osby","Kommuner","Municipality",NA,NA
+146,222,"SWE","Sweden",14,"Skåne",146,"Perstorp","Kommuner","Municipality",NA,NA
+147,222,"SWE","Sweden",14,"Skåne",147,"Simrishamn","Kommuner","Municipality",NA,NA
+148,222,"SWE","Sweden",14,"Skåne",148,"Sjöbo","Kommuner","Municipality",NA,NA
+149,222,"SWE","Sweden",14,"Skåne",149,"Skurup","Kommuner","Municipality",NA,NA
+150,222,"SWE","Sweden",14,"Skåne",150,"Staffanstorp","Kommuner","Municipality",NA,NA
+151,222,"SWE","Sweden",14,"Skåne",151,"Svalöv","Kommuner","Municipality",NA,NA
+152,222,"SWE","Sweden",14,"Skåne",152,"Svedala","Kommuner","Municipality",NA,NA
+153,222,"SWE","Sweden",14,"Skåne",153,"Tomelilla","Kommuner","Municipality",NA,NA
+154,222,"SWE","Sweden",14,"Skåne",154,"Trelleborg","Kommuner","Municipality",NA,NA
+155,222,"SWE","Sweden",14,"Skåne",155,"Vellinge","Kommuner","Municipality",NA,NA
+156,222,"SWE","Sweden",14,"Skåne",156,"Ystad","Kommuner","Municipality",NA,NA
+157,222,"SWE","Sweden",15,"Stockholm",157,"Österåker","Kommuner","Municipality",NA,NA
+158,222,"SWE","Sweden",15,"Stockholm",158,"Botkyrka","Kommuner","Municipality",NA,NA
+159,222,"SWE","Sweden",15,"Stockholm",159,"Danderyd","Kommuner","Municipality",NA,NA
+160,222,"SWE","Sweden",15,"Stockholm",160,"Ekerö","Kommuner","Municipality",NA,NA
+161,222,"SWE","Sweden",15,"Stockholm",161,"Haninge","Kommuner","Municipality",NA,NA
+162,222,"SWE","Sweden",15,"Stockholm",162,"Huddinge","Kommuner","Municipality",NA,NA
+163,222,"SWE","Sweden",15,"Stockholm",163,"Järfälla","Kommuner","Municipality",NA,NA
+164,222,"SWE","Sweden",15,"Stockholm",164,"Lidingö","Kommuner","Municipality",NA,NA
+165,222,"SWE","Sweden",15,"Stockholm",165,"Nacka","Kommuner","Municipality",NA,NA
+166,222,"SWE","Sweden",15,"Stockholm",166,"Norrtälje","Kommuner","Municipality",NA,NA
+167,222,"SWE","Sweden",15,"Stockholm",167,"Nynäshamn","Kommuner","Municipality",NA,NA
+168,222,"SWE","Sweden",15,"Stockholm",168,"Södertälje","Kommuner","Municipality",NA,NA
+169,222,"SWE","Sweden",15,"Stockholm",169,"Salem","Kommuner","Municipality",NA,NA
+170,222,"SWE","Sweden",15,"Stockholm",170,"Sigtuna","Kommuner","Municipality",NA,NA
+171,222,"SWE","Sweden",15,"Stockholm",171,"Sollentuna","Kommuner","Municipality",NA,NA
+172,222,"SWE","Sweden",15,"Stockholm",172,"Solna","Kommuner","Municipality",NA,NA
+173,222,"SWE","Sweden",15,"Stockholm",173,"Stockholm","Kommuner","Municipality",NA,NA
+174,222,"SWE","Sweden",15,"Stockholm",174,"Sundbyberg","Kommuner","Municipality",NA,NA
+175,222,"SWE","Sweden",15,"Stockholm",175,"Täby","Kommuner","Municipality",NA,NA
+176,222,"SWE","Sweden",15,"Stockholm",176,"Tyresö","Kommuner","Municipality",NA,NA
+177,222,"SWE","Sweden",15,"Stockholm",177,"Upplands-Bro","Kommuner","Municipality",NA,NA
+178,222,"SWE","Sweden",15,"Stockholm",178,"Upplands-Väsby","Kommuner","Municipality",NA,NA
+179,222,"SWE","Sweden",15,"Stockholm",179,"Värmdö","Kommuner","Municipality",NA,NA
+180,222,"SWE","Sweden",15,"Stockholm",180,"Vallentuna","Kommuner","Municipality",NA,NA
+181,222,"SWE","Sweden",15,"Stockholm",181,"Vaxholm","Kommuner","Municipality",NA,NA
+182,222,"SWE","Sweden",16,"Uppsala",182,"Östhammar","Kommuner","Municipality",NA,NA
+183,222,"SWE","Sweden",16,"Uppsala",183,"Älvkarleby","Kommuner","Municipality",NA,NA
+184,222,"SWE","Sweden",16,"Uppsala",184,"Enköping","Kommuner","Municipality",NA,NA
+185,222,"SWE","Sweden",16,"Uppsala",185,"Håbo","Kommuner","Municipality",NA,NA
+186,222,"SWE","Sweden",16,"Uppsala",186,"Tierp","Kommuner","Municipality",NA,NA
+187,222,"SWE","Sweden",16,"Uppsala",187,"Uppsala","Kommuner","Municipality",NA,NA
+188,222,"SWE","Sweden",17,"Värmland",188,"Årjäng","Kommuner","Municipality",NA,NA
+189,222,"SWE","Sweden",17,"Värmland",189,"Arvika","Kommuner","Municipality",NA,NA
+190,222,"SWE","Sweden",17,"Värmland",190,"Eda","Kommuner","Municipality",NA,NA
+191,222,"SWE","Sweden",17,"Värmland",191,"Filipstad","Kommuner","Municipality",NA,NA
+192,222,"SWE","Sweden",17,"Värmland",192,"Forshaga","Kommuner","Municipality",NA,NA
+193,222,"SWE","Sweden",17,"Värmland",193,"Grums","Kommuner","Municipality",NA,NA
+194,222,"SWE","Sweden",17,"Värmland",194,"Hagfors","Kommuner","Municipality",NA,NA
+195,222,"SWE","Sweden",17,"Värmland",195,"Hammarö","Kommuner","Municipality",NA,NA
+196,222,"SWE","Sweden",17,"Värmland",196,"Karlstad","Kommuner","Municipality",NA,NA
+197,222,"SWE","Sweden",17,"Värmland",197,"Kil","Kommuner","Municipality",NA,NA
+198,222,"SWE","Sweden",17,"Värmland",198,"Kristinehamn","Kommuner","Municipality",NA,NA
+199,222,"SWE","Sweden",17,"Värmland",199,"Munkfors","Kommuner","Municipality",NA,NA
+200,222,"SWE","Sweden",17,"Värmland",200,"Säffle","Kommuner","Municipality",NA,NA
+201,222,"SWE","Sweden",17,"Värmland",201,"Storfors","Kommuner","Municipality",NA,NA
+202,222,"SWE","Sweden",17,"Värmland",202,"Sunne","Kommuner","Municipality",NA,NA
+203,222,"SWE","Sweden",17,"Värmland",203,"Torsby","Kommuner","Municipality",NA,NA
+204,222,"SWE","Sweden",18,"Västerbotten",204,"Åsele","Kommuner","Municipality",NA,NA
+205,222,"SWE","Sweden",18,"Västerbotten",205,"Bjurholm","Kommuner","Municipality",NA,NA
+206,222,"SWE","Sweden",18,"Västerbotten",206,"Dorotea","Kommuner","Municipality",NA,NA
+207,222,"SWE","Sweden",18,"Västerbotten",207,"Lycksele","Kommuner","Municipality",NA,NA
+208,222,"SWE","Sweden",18,"Västerbotten",208,"Malå","Kommuner","Municipality",NA,NA
+209,222,"SWE","Sweden",18,"Västerbotten",209,"Nordmaling","Kommuner","Municipality",NA,NA
+210,222,"SWE","Sweden",18,"Västerbotten",210,"Norsjö","Kommuner","Municipality",NA,NA
+211,222,"SWE","Sweden",18,"Västerbotten",211,"Robertsfors","Kommuner","Municipality",NA,NA
+212,222,"SWE","Sweden",18,"Västerbotten",212,"Skellefteå","Kommuner","Municipality",NA,NA
+213,222,"SWE","Sweden",18,"Västerbotten",213,"Sorsele","Kommuner","Municipality",NA,NA
+214,222,"SWE","Sweden",18,"Västerbotten",214,"Storuman","Kommuner","Municipality",NA,NA
+215,222,"SWE","Sweden",18,"Västerbotten",215,"Umeå","Kommuner","Municipality",NA,NA
+216,222,"SWE","Sweden",18,"Västerbotten",216,"Vännäs","Kommuner","Municipality",NA,NA
+217,222,"SWE","Sweden",18,"Västerbotten",217,"Vilhelmina","Kommuner","Municipality",NA,NA
+218,222,"SWE","Sweden",18,"Västerbotten",218,"Vindeln","Kommuner","Municipality",NA,NA
+219,222,"SWE","Sweden",19,"Västernorrland",219,"Örnsköldsvik","Kommuner","Municipality",NA,NA
+220,222,"SWE","Sweden",19,"Västernorrland",220,"Ånge","Kommuner","Municipality",NA,NA
+221,222,"SWE","Sweden",19,"Västernorrland",221,"Härnösand","Kommuner","Municipality",NA,NA
+222,222,"SWE","Sweden",19,"Västernorrland",222,"Kramfors","Kommuner","Municipality",NA,NA
+223,222,"SWE","Sweden",19,"Västernorrland",223,"Sollefteå","Kommuner","Municipality",NA,NA
+224,222,"SWE","Sweden",19,"Västernorrland",224,"Sundsvall","Kommuner","Municipality",NA,NA
+225,222,"SWE","Sweden",19,"Västernorrland",225,"Timrå","Kommuner","Municipality",NA,NA
+226,222,"SWE","Sweden",20,"Västmanland",226,"Arboga","Kommuner","Municipality",NA,NA
+227,222,"SWE","Sweden",20,"Västmanland",227,"Fagersta","Kommuner","Municipality",NA,NA
+228,222,"SWE","Sweden",20,"Västmanland",228,"Hallstahammar","Kommuner","Municipality",NA,NA
+229,222,"SWE","Sweden",20,"Västmanland",229,"Heby","Kommuner","Municipality",NA,NA
+230,222,"SWE","Sweden",20,"Västmanland",230,"Köping","Kommuner","Municipality",NA,NA
+231,222,"SWE","Sweden",20,"Västmanland",231,"Kungsör","Kommuner","Municipality",NA,NA
+232,222,"SWE","Sweden",20,"Västmanland",232,"Norberg","Kommuner","Municipality",NA,NA
+233,222,"SWE","Sweden",20,"Västmanland",233,"Sala","Kommuner","Municipality",NA,NA
+234,222,"SWE","Sweden",20,"Västmanland",234,"Skinnskatteberg","Kommuner","Municipality",NA,NA
+235,222,"SWE","Sweden",20,"Västmanland",235,"Surahammar","Kommuner","Municipality",NA,NA
+236,222,"SWE","Sweden",20,"Västmanland",236,"Västerås","Kommuner","Municipality",NA,NA
+237,222,"SWE","Sweden",21,"Västra Götaland",237,"Öckerö","Kommuner","Municipality",NA,NA
+238,222,"SWE","Sweden",21,"Västra Götaland",238,"Åmål","Kommuner","Municipality",NA,NA
+239,222,"SWE","Sweden",21,"Västra Götaland",239,"Ale","Kommuner","Municipality",NA,NA
+240,222,"SWE","Sweden",21,"Västra Götaland",240,"Alingsås","Kommuner","Municipality",NA,NA
+241,222,"SWE","Sweden",21,"Västra Götaland",241,"Bengtsfors","Kommuner","Municipality",NA,NA
+242,222,"SWE","Sweden",21,"Västra Götaland",242,"Borås","Kommuner","Municipality",NA,NA
+243,222,"SWE","Sweden",21,"Västra Götaland",243,"Dals-Ed","Kommuner","Municipality",NA,NA
+244,222,"SWE","Sweden",21,"Västra Götaland",244,"Essunga","Kommuner","Municipality",NA,NA
+245,222,"SWE","Sweden",21,"Västra Götaland",245,"Färgelanda","Kommuner","Municipality",NA,NA
+246,222,"SWE","Sweden",21,"Västra Götaland",246,"Falköping","Kommuner","Municipality",NA,NA
+247,222,"SWE","Sweden",21,"Västra Götaland",247,"Göteborg","Kommuner","Municipality",NA,NA
+248,222,"SWE","Sweden",21,"Västra Götaland",248,"Götene","Kommuner","Municipality",NA,NA
+249,222,"SWE","Sweden",21,"Västra Götaland",249,"Grästorp","Kommuner","Municipality",NA,NA
+250,222,"SWE","Sweden",21,"Västra Götaland",250,"Gullspång","Kommuner","Municipality",NA,NA
+251,222,"SWE","Sweden",21,"Västra Götaland",251,"Härryda","Kommuner","Municipality",NA,NA
+252,222,"SWE","Sweden",21,"Västra Götaland",252,"Habo","Kommuner","Municipality",NA,NA
+253,222,"SWE","Sweden",21,"Västra Götaland",253,"Herrljunga","Kommuner","Municipality",NA,NA
+254,222,"SWE","Sweden",21,"Västra Götaland",254,"Hjo","Kommuner","Municipality",NA,NA
+255,222,"SWE","Sweden",21,"Västra Götaland",255,"Karlsborg","Kommuner","Municipality",NA,NA
+256,222,"SWE","Sweden",21,"Västra Götaland",256,"Kungälv","Kommuner","Municipality",NA,NA
+257,222,"SWE","Sweden",21,"Västra Götaland",257,"Lerum","Kommuner","Municipality",NA,NA
+258,222,"SWE","Sweden",21,"Västra Götaland",258,"Lidköping","Kommuner","Municipality",NA,NA
+259,222,"SWE","Sweden",21,"Västra Götaland",259,"Lilla Edet","Kommuner","Municipality",NA,NA
+260,222,"SWE","Sweden",21,"Västra Götaland",260,"Lysekil","Kommuner","Municipality",NA,NA
+261,222,"SWE","Sweden",21,"Västra Götaland",261,"Mölndal","Kommuner","Municipality",NA,NA
+262,222,"SWE","Sweden",21,"Västra Götaland",262,"Mariestad","Kommuner","Municipality",NA,NA
+263,222,"SWE","Sweden",21,"Västra Götaland",263,"Mark","Kommuner","Municipality",NA,NA
+264,222,"SWE","Sweden",21,"Västra Götaland",264,"Mellerud","Kommuner","Municipality",NA,NA
+265,222,"SWE","Sweden",21,"Västra Götaland",265,"Mullsjoe","Kommuner","Municipality",NA,"Mullsjö"
+266,222,"SWE","Sweden",21,"Västra Götaland",266,"Munkedal","Kommuner","Municipality",NA,NA
+267,222,"SWE","Sweden",21,"Västra Götaland",267,"Orust","Kommuner","Municipality",NA,NA
+268,222,"SWE","Sweden",21,"Västra Götaland",268,"Partille","Kommuner","Municipality",NA,NA
+269,222,"SWE","Sweden",21,"Västra Götaland",269,"Skövde","Kommuner","Municipality",NA,NA
+270,222,"SWE","Sweden",21,"Västra Götaland",270,"Skara","Kommuner","Municipality",NA,NA
+271,222,"SWE","Sweden",21,"Västra Götaland",271,"Sotenäs","Kommuner","Municipality",NA,NA
+272,222,"SWE","Sweden",21,"Västra Götaland",272,"Stenungsund","Kommuner","Municipality",NA,NA
+273,222,"SWE","Sweden",21,"Västra Götaland",273,"Strömstad","Kommuner","Municipality",NA,NA
+274,222,"SWE","Sweden",21,"Västra Götaland",274,"Svenljunga","Kommuner","Municipality",NA,NA
+275,222,"SWE","Sweden",21,"Västra Götaland",275,"Töreboda","Kommuner","Municipality",NA,NA
+276,222,"SWE","Sweden",21,"Västra Götaland",276,"Tanum","Kommuner","Municipality",NA,NA
+277,222,"SWE","Sweden",21,"Västra Götaland",277,"Tibro","Kommuner","Municipality",NA,NA
+278,222,"SWE","Sweden",21,"Västra Götaland",278,"Tidaholm","Kommuner","Municipality",NA,NA
+279,222,"SWE","Sweden",21,"Västra Götaland",279,"Tjörn","Kommuner","Municipality",NA,NA
+280,222,"SWE","Sweden",21,"Västra Götaland",280,"Tranemo","Kommuner","Municipality",NA,NA
+281,222,"SWE","Sweden",21,"Västra Götaland",281,"Trollhättan","Kommuner","Municipality",NA,NA
+282,222,"SWE","Sweden",21,"Västra Götaland",282,"Uddevalla","Kommuner","Municipality",NA,NA
+283,222,"SWE","Sweden",21,"Västra Götaland",283,"Ulricehamn","Kommuner","Municipality",NA,NA
+284,222,"SWE","Sweden",21,"Västra Götaland",284,"Vänersborg","Kommuner","Municipality",NA,NA
+285,222,"SWE","Sweden",21,"Västra Götaland",285,"Vårgårda","Kommuner","Municipality",NA,NA
+286,222,"SWE","Sweden",21,"Västra Götaland",286,"Vara","Kommuner","Municipality",NA,NA
