@@ -1,0 +1,336 @@
+---
+title: "Spatial analyses tasks"
+author: "Søren Faurby"
+date: "10/26/2020"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1 Test Bergmanns rule on pidgeons
+For this task you should try to incorporate an additional spatial predictor into the analyses of pidgeons from yesterday. More specifically you should test if it changes the conclusions on the analyses of the relationship between tarsus and body size if you include mean annual temperature for all species into the analyses.
+
+For this you first have to download the ranges of all pigeons. This can be done by going to the IUCN download page  and clicking though Animalia -> Chordata -> Aves before finally ticking Columbiformes. Load the polygons into R and transform it to cylindrical equal area. You should not transform it to spatial using "as(..., 'Spatial') as you did last time since we want the data in the sf format for later. 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(raster)
+library(sf)
+Source_Res=raster("C:\\Bpoxsync\\Phylacine\\1.21\\Data\\Ranges\\Present_natural\\canis_lupus.tif")
+Polygon=st_read("C://Bpoxsync//Spatial_R//Other_data//Pidgeon//data_0.shp")
+Polygon=st_transform(Polygon,projection(Source_Res))
+
+```
+
+Data from IUCN has a whitespace between genus and species name. The dataset from yesterday has an underscore instead. We can change the whitespaces to underscores (I am here calling the object with pidgeon ranges "Polygon")
+
+
+```{r, message=FALSE, warning=FALSE}
+Polygon$BINOMIAL=gsub(" ", "_", Polygon$BINOMIAL)
+
+```
+
+You now need to calculate mean annual temperature within the range of each species. This is easiest done by first creating a raster of annual temperature in a cylindrical equal area projection. You can use a Behrmann projection as we have used earlier in the week but in a higher resolution of 0.2 by 0.2 degree equivalent. This is the very similar to what you did Wednesay
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(raster)
+Source_Res=raster("C:\\Bpoxsync\\Phylacine\\1.21\\Data\\Ranges\\Present_natural\\canis_lupus.tif")
+Temp_raster = raster("C:\\Bpoxsync\\Spatial_R\\Other_data\\CHELSA_bio10_01.tif")
+Agg_Temp_20=aggregate(Temp_raster, 6)
+Proj_Temp_20= projectRaster(Agg_Temp_20,crs=projection(Source_Res))
+DisAgg=disaggregate(Source_Res, 20)
+Proj_Temp=resample(Proj_Temp_20, DisAgg)
+Proj_Temp=aggregate(Proj_Temp, 4)
+plot(Proj_Temp, main="Temperature")
+```
+
+You can check the dimensions of the raster
+
+```{r, message=FALSE, warning=FALSE}
+dim(Proj_Temp)
+```
+
+You should now load the data you used yesterday (I am here calling the pigeon dataset DATA) and create a new column called "Temperature" which should be replaced with the median temperature for each species. Below I will highlight how this can be done for the first species. You can do this for the rest using a for loop. We will rasterize using the package fasterize instead of raster as we used earlier since fasterize is substantially faster. 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+DATA=read.table("C:\\Bpoxsync\\Spatial_R\\Data\\MCMCglmm_data\\ColumbidaeTraits.txt",h=T)
+DATA$Temperature=numeric(nrow(DATA))
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(fasterize)
+i=1
+Bird_Raster=fasterize(Polygon[which(Polygon$BINOMIAL==DATA$species[i]),], Proj_Temp) #Create a raster for the species. It takes the value 1 for a cell where it is found in the midpoint and NA for all other cells
+Temp_Values=values(Bird_Raster*Proj_Temp) #Since Bird_Raster takes the value 1 for cells with the bird and NA for others, this raster is identical to temperature for cells with the bird and NA for all other cells. 
+DATA$Temperature[i]=median(Temp_Values, na.rm=T)/10 #The units in the raster were as we have discussed before in degrees times 10. We therefore divide by ten here to get units in degrees.
+```
+
+Now you just need to set this up as a for loop across all species. 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(fasterize)
+for (i in 1:nrow(DATA)){
+Bird_Raster=fasterize(Polygon[which(Polygon$BINOMIAL==DATA$species[i]),], Proj_Temp) #Create a raster for the species. It takes the value 1 for a cell where it is found in the midpoint and NA for all other cells
+Temp_Values=values(Bird_Raster*Proj_Temp) #Since Bird_Raster takes the value 1 for cells with the bird and NA for others, this raster is identical to temperature for cells with the bird and NA for all other cells. 
+DATA$Temperature[i]=median(Temp_Values, na.rm=T)/10
+}
+```
+
+If successful you should get something like this.
+
+
+```{r, message=FALSE, warning=FALSE}
+summary(DATA$Temperature)
+```
+
+As you will see the procedure gave NA for a single species. This is because this species [the socorro dove](https://en.wikipedia.org/wiki/Socorro_dove) is endemic to a tiny island. The rasterization procedure only looks at cells where the midpoint of the cell is within the range of a specis. The island the socorro dove is found in does not cross any such midpoints. You can instead identify the temperature of the centroid of the species polygon using extract() from the library raster
+
+
+```{r, message=FALSE, warning=FALSE}
+library(geosphere )
+NA_SPECIES=which(is.na(DATA$Temperature))
+CENTROID=centroid(as(Polygon[which(Polygon$BINOMIAL==DATA$species[NA_SPECIES]),], "Spatial"))
+extract(Proj_Temp, CENTROID)
+```
+
+Replace the NA with this value and scale temperautre to have a mean of 0 and a standard deviation of 1. 
+Now test if the temperature pidgeons live in influences tarsus size by building and asessing an MCMCglmm model with "foraging", "log(body.g)" and "Temperature" as main effects and phylogeny and measurement  as random effects. Below I have called this model "Model_T". I have here just used the defaults priors, if you set priors as you did yesterday you will get marginally different results.
+
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(MCMCglmm)
+library(phytools)
+library(ggplot2)
+
+DATA$Temperature[NA_SPECIES]=extract(Proj_Temp, CENTROID)
+library(phytools)
+DATA$Temperature=scale(DATA$Temperature)[,1]
+
+tree = read.tree("C:\\Bpoxsync\\Spatial_R\\Data\\MCMCglmm_data\\ColumbidaeTree.tre")
+DATA$animal = DATA$species
+
+Model_T = MCMCglmm(
+  log(tarsus.mm)~foraging+log(body.g)+Temperature,
+  random= ~animal + measure,
+  data = DATA, verbose=F,
+  nitt = 1100, thin=10, burnin = 100)
+```
+
+We can look at the results which should look something like this.
+
+
+```{r, message=FALSE, warning=FALSE}
+summary(Model_T)
+
+```
+
+The results thus clearly show that tarsus length is not influenced by the temperature of the area the birds live in
+
+
+### 2 Predictors of rodent diversity
+For the task, you should investigate predictors of the diversity of rodents across the globe. 
+More specifically you should investigate using a SAR regression with an optimal neighborhood if the diversity of rodents within each grid cells is best explained by precipitation, the difference in elevation within the cell or both. 
+You can calculate the diversity of rodents based on the present-natural data from Phylcacine.If you do this correctly you should get something looking like this.
+
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(raster)
+METADATA=read.csv("C:\\Bpoxsync\\Phylacine\\1.21\\Data\\Ranges\\Spatial_metadata.csv")
+Selected_species=METADATA$Binomial.1.2[METADATA$Order.1.2=="Rodentia"]
+filepath ="C:\\Bpoxsync\\Phylacine\\1.21\\Data\\Ranges\\Present_natural\\"
+RASTERS=list()
+for (i in 1:length(Selected_species)) {
+    RASTERS[i]=raster(paste0(filepath, Selected_species[i], ".tif"))
+}
+RASTERS = stack(RASTERS)
+Diversity_raster=sum(RASTERS)
+plot(Diversity_raster, main="Rodent_diversity")
+```
+
+For precipitation you should process the data similar to the process of temperature from earlier in the week with one main difference. For precipitation it generally makes most sense to analyze log (precipitation) rather than raw precipitation. Since there is a few cells without any  precipitation add 1 to each cell before log transforming.
+The input data for elevation variation can be found  [here](https://www.worldclim.org/data/worldclim21.html). **More specifically I have used the file wc2.1_2.5m_elev.tif, which is the file listed under a 2.5 minute resolution. This is a decent trade-off between computational speed and acuracy. Had this been for a paper purpose you could have considered using the finer scale 30 second one**. You need to do a little work to get the elevational range within each cell. The easiest way to deal with this utilizes the fact that the aggregate function can aggregate based on multiple different functions. Similar to precipitation it it desirable to log-transform this variable after it is calculated.
+So far we have only been aggregating based on mean but you can also aggregate based to find the smallest value or the largest value in a the cells you aggregate". To see how this works we can aggreagte to find the smallest and largest diversity of rodents while aggregating by a factor of 2 (note that I here refer to a *Diversity_raster*, which was the name I gave to the diversity of rodents I calculated above, if you want to redo this you may need to change the name).
+
+```{r, message=FALSE, warning=FALSE}
+Min_Div=aggregate(Diversity_raster, 2, min)
+plot(Min_Div, main="Minimum diveristy")
+Max_Div=aggregate(Diversity_raster, 2, max)
+plot(Max_Div, main="Maximum diveristy", axes=F,box=F)
+```
+
+Now you have all the skills to produce raster for precipitaion and altitude_variaiton.
+If you succeed precipitation (logtransformed) should look something like this. (For precipitation it is likely desirable to log-transform data before aggregation).
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+Precip_raster = raster("C:\\Bpoxsync\\Spatial_R\\Other_data\\CHELSA_bio10_12.tif")
+Agg_Precip_20=aggregate(Precip_raster, 6)
+Proj_Precip_20= projectRaster(Agg_Precip_20,crs=projection(Diversity_raster))
+DisAgg=disaggregate(Diversity_raster, 20)
+Proj_Precip=resample(Proj_Precip_20, DisAgg)
+Proj_Precip=log10(Proj_Precip+1)
+Proj_Precip=aggregate(Proj_Precip, 20)
+plot(Proj_Precip, main="Precipitation (log10 +1)")
+```
+
+And altitude variaiton (log-transformed) should look something like this. You should again add 1 to before logtransforming becuase there might be cells without elevational variation-. 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+Altitude=raster("C:\\Bpoxsync\\Spatial_R\\Other_data\\wc2.1_2.5m_elev.tif")
+Altitude_proj = projectRaster(Altitude,crs=projection(Diversity_raster))
+Source_raster=disaggregate(Diversity_raster,24)
+Altitude_proj=resample(Altitude_proj, Source_raster)
+Altitude_max=aggregate(Altitude_proj, 24,max)
+Altitude_min=aggregate(Altitude_proj, 24,min)
+Altitude=Altitude_max-Altitude_min
+Altitude=log10(Altitude+1)
+plot(Altitude, main="Altitude variation (log10 +1)")
+```
+
+And now you have all the data needed to to a sar regression based on what you learned Wednesday but testing both predictors as once. To reduce time you can use a subample of 1000 cells again. If you succeed you should get a model and a null-model similar to this (exact results will vary slightly since you will analyze different sets of cells than me)
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(sf)
+library(ncf)
+library(spdep)
+library(wiqid)
+
+coordinates = coordinates(Diversity_raster)
+species_div = values(Diversity_raster)
+Precip = values(Proj_Precip)
+Alt=values(Altitude)
+data_merged = as.data.frame(cbind(coordinates,species_div,Precip,Alt))
+final_data = data_merged[complete.cases(data_merged),]
+final_data$species_div=scale(final_data$species_div)[,1]
+final_data$Precip=scale(final_data$Precip)[,1]
+final_data$Alt=scale(final_data$Alt)[,1]
+subsample = final_data[sample(nrow(final_data), 1000), ]
+
+coordinates = cbind(subsample$x,subsample$y)
+# define the current projection (Behrman)
+coordinates_sp = SpatialPoints(coordinates,proj4string = CRS(projection(Diversity_raster)))
+# transform to lat-lon projection
+coordinates_transformed = spTransform(coordinates_sp, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"))
+# turn back into data frame
+coordinates_df = as.data.frame(coordinates_transformed)
+subsample$x = coordinates_df$coords.x1
+subsample$y = coordinates_df$coords.x2
+
+Neighborhood_generator=function(COOR) {
+models<<-list(
+  nb2listw(knn2nb(knearneigh(COOR,1, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,2, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,3, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,4, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,5, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,6, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,7, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,8, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,9, longlat = T)),style="W",zero.policy =T),
+  nb2listw(knn2nb(knearneigh(COOR,10, longlat = T)),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,250, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,500, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,750, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1000, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1250, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1500, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2000, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2500, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3000, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3500, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,4000, longlat = T),style="W",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,250, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,500, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,750, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1000, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1250, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1500, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2000, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2500, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3000, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3500, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,4000, longlat = T),style="U",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,250, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,500, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,750, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1000, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1250, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,1500, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2000, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,2500, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3000, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,3500, longlat = T),style="S",zero.policy =T),
+  nb2listw(dnearneigh(COOR, 0,4000, longlat = T),style="S",zero.policy =T)
+)}
+
+neighbourhood_models = Neighborhood_generator(cbind(subsample$x,subsample$y))
+
+AIC_LIST=numeric(length(neighbourhood_models))
+for (i in 1:length(neighbourhood_models)) {
+	AIC_LIST[i]=AICc(errorsarlm(species_div~Precip+Alt, data=subsample,listw=neighbourhood_models[[i]], tol.solve = 1e-12, zero.policy =T))}
+
+index_best_model = which(AIC_LIST==min(AIC_LIST))
+best_neighbour_model = neighbourhood_models[index_best_model]
+
+sar_model = errorsarlm(species_div~Precip+Alt, data=subsample, listw=best_neighbour_model[[1]], tol.solve = 1e-12, zero.policy =T)
+sar_model_NULL = errorsarlm(species_div~1, data=subsample, listw=best_neighbour_model[[1]], tol.solve = 1e-12, zero.policy =T)
+	
+```
+
+```{r, message=FALSE, warning=FALSE}
+summary(sar_model, Nagelkerke = TRUE)
+summary(sar_model_NULL, Nagelkerke = TRUE)
+```
+
+### 3 Test if climatic generalists have different tarsus size than climatic specialists. 
+
+For this last task you should see the tarsal length it influenced by climatic heterogeneity (i.e. if climatic generalists are consistently different from climatic specialists). You should estimate this based on the variaiton of the (log-transformed) annual precipitation they are found in. Use the same resolution of the raster as you did for median temperature. **This should not be based the difference between minimum and maximum becuase this is logically connected to the range size but should instead be based on the difference bteewen the 10 and 90% quantiles.** In R these quantiles for a vector *V* can be calcualted as quantile(V, probs =c(0.1, 0.9), type=8). The underlying effect of differnet algoritms for quantiles which are specified with R can be seen in the helpfile which you get by writing help(quantile) and is also discussed in the appendix of one of my recent [papers](https://onlinelibrary.wiley.com/doi/full/10.1111/jbi.13411). You should be able to do this on you have learned so far. 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(raster)
+Source_Res=raster("C:\\Bpoxsync\\Phylacine\\1.21\\Data\\Ranges\\Present_natural\\canis_lupus.tif")
+Precip_raster = raster("C:\\Bpoxsync\\Spatial_R\\Other_data\\CHELSA_bio10_12.tif")
+Agg_Precip_20=aggregate(Precip_raster, 6)
+Proj_Precip_20= projectRaster(Agg_Precip_20,crs=projection(Source_Res))
+DisAgg=disaggregate(Source_Res, 20)
+Proj_Precip=resample(Proj_Precip_20, DisAgg)
+Proj_Precip=log10(Proj_Precip+1)
+Proj_Precip=aggregate(Proj_Precip, 4)
+
+DATA$Climate_Var=numeric(nrow(DATA))
+for (i in 1:nrow(DATA)){
+Bird_Raster=fasterize(Polygon[which(Polygon$BINOMIAL==DATA$species[i]),], Proj_Precip)
+Precip_Values=values(Bird_Raster*Proj_Precip)
+QUAN=quantile(Precip_Values[is.na(Precip_Values)==F], probs =c(0.1,0.9))
+DATA$Climate_Var[i]=QUAN[2]-QUAN[1]
+DATA$Climate_Var[is.na(DATA$Climate_Var)]=0
+}
+DATA$Climate_Var=scale(DATA$Climate_Var)[,1]
+```
+
+If successful calling summary on the climate variation should be something like this (after you have scaled it to have a mean of 0 and a sd of 1)
+
+```{r, message=FALSE, warning=FALSE}
+summary(DATA$Climate_Var)
+```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(MCMCglmm)
+library(phytools)
+library(ggplot2)
+tree = read.tree("C:\\Bpoxsync\\Spatial_R\\Data\\MCMCglmm_data\\ColumbidaeTree.tre")
+DATA$animal = DATA$species
+Model_P = MCMCglmm(
+  log(tarsus.mm)~foraging+log(body.g)+Climate_Var-1,
+  random= ~animal + measure,
+  data = DATA, verbose=F,
+  nitt = 1100, thin=10, burnin = 100)
+```
+
+If successful you should get something like this. Again this is based on default priors and your results will be marginally different if you set priors as you did yesterday.
+
+```{r, message=FALSE, warning=FALSE}
+summary(Model_P)
+```
